@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Curso {
 
+    private int id;
+
     private String nombre;
 
     private String turno;

@@ -8,11 +8,13 @@ import java.util.ArrayList;
 @Data
 public class Profesor {
 
+    private int id;
+
     private String nombre;
 
     private String apellido;
 
     private ArrayList<Curso> cursos;
 
-    
+
 }

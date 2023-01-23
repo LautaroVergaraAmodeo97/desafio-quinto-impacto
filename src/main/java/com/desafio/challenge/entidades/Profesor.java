@@ -14,6 +14,11 @@ import java.util.ArrayList;
 
 public class Profesor {
 
+    
+
+
+    private int id;
+
     private String nombre;
 
     private String apellido;

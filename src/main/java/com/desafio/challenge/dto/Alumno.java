@@ -9,6 +9,7 @@ import java.util.Date;
 @Data
 public class Alumno {
 
+    private int id;
 
     private String nombre;
 
