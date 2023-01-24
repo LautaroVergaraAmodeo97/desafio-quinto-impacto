@@ -1,4 +1,13 @@
 package com.desafio.challenge.repositorio;
 
-public interface ProfesorRepository {
+import com.desafio.challenge.entidades.Profesor;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProfesorRepository  extends JpaRepository <Profesor,String>{
+
+
+
+
+
+
 }
