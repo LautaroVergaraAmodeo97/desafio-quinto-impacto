@@ -4,17 +4,24 @@ import com.desafio.challenge.entidades.Curso;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 @Data
-public class Profesor {
+public class AlumnoRequestDTO {
+
 
     private int id;
 
     private String nombre;
 
-    private String apellido;
+    private int edad;
+
+    private Date nacimiento;
+
+    private String historias;
 
     private ArrayList<Curso> cursos;
+
 
 
 }

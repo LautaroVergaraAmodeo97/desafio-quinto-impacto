@@ -5,7 +5,7 @@ import com.desafio.challenge.entidades.Profesor;
 import lombok.Data;
 
 @Data
-public class Curso {
+public class CursoResponseDTO {
 
     private int id;
 
