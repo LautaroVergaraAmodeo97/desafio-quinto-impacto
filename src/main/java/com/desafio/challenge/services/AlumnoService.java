@@ -7,7 +7,6 @@ import com.desafio.challenge.exception.ErrorServicioException;
 
 public interface AlumnoService {
 
-
 Alumno findById(String uuid) throws ErrorServicioException;
 AlumnoResponseDTO crearUsuario (AlumnoRequestDTO alumnoRequestDTO);
 AlumnoResponseDTO modificarUsuario (AlumnoRequestDTO alumnoRequestDTO,String uuid) throws ErrorServicioException;

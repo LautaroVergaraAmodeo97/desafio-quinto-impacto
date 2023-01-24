@@ -1,16 +1,19 @@
 package com.desafio.challenge.entidades;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Where;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 @Data
+@Where(clause = "deleted=0")
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -38,6 +41,7 @@ public class Alumno {
     @Column(name="cursos")
     private ArrayList<Curso> cursos;
 
-
+    @NotNull
+    public boolean deleted;
 
 }
