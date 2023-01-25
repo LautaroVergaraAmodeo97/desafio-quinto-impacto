@@ -1,18 +1,27 @@
 package com.desafio.challenge.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+//import jakarta.persistence.*;
+
+//import jakarta.persistence.Column;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.Table;
+//import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
+
+import javax.persistence.*;
+import java.util.ArrayList;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Curso")
 public class Curso {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -30,10 +39,15 @@ public class Curso {
     private String horario;
 
     @Column(name="profesor")
-    private Profesor profesor;
+    @OneToMany
+    private ArrayList<Profesor> profesor;
 
     @Column(name="alumno")
-    private Alumno alumnos;
+    @OneToMany
+    private ArrayList<Alumno> alumnos;
+
+    @NotNull
+    public boolean deleted;
 
 
 }

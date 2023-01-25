@@ -4,7 +4,9 @@ import com.desafio.challenge.dto.AlumnoResponseDTO;
 import com.desafio.challenge.dto.AlumnoRequestDTO;
 import com.desafio.challenge.entidades.Alumno;
 import com.desafio.challenge.exception.ErrorServicioException;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface AlumnoService {
 
 Alumno findById(String uuid) throws ErrorServicioException;

@@ -6,15 +6,16 @@ import com.desafio.challenge.exception.ErrorServicioException;
 import com.desafio.challenge.services.CursoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+
+@Controller
+@RequestMapping("/curso")
 public class CursoController {
 
     @Autowired
-    CursoService cursoService;
+    private CursoService cursoService;
 
     @PostMapping
     public CursoResponseDTO crearCurso(@Valid CursoRequestDTO cursoRequestDTO){
@@ -29,7 +30,7 @@ public class CursoController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public boolean eliminarCurso (@PathVariable("id") String uuid) throws ErrorServicioException{
+    public boolean eliminarCurso(@PathVariable("id") String uuid) throws ErrorServicioException{
         return cursoService.eliminar(uuid);
     }
 

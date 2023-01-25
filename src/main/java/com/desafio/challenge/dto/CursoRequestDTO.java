@@ -4,6 +4,8 @@ import com.desafio.challenge.entidades.Alumno;
 import com.desafio.challenge.entidades.Profesor;
 import lombok.Data;
 
+import java.util.ArrayList;
+
 @Data
 public class CursoRequestDTO {
 
@@ -15,9 +17,10 @@ public class CursoRequestDTO {
 
     private String horario;
 
-    private Profesor profesor;
+    private ArrayList<Profesor> profesor;
 
-    private Alumno alumnos;
+    private ArrayList<Alumno> alumnos;
+
 
 
 

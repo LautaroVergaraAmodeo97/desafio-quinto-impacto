@@ -6,15 +6,19 @@ import com.desafio.challenge.exception.ErrorServicioException;
 import com.desafio.challenge.services.ProfesorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+@Controller
+@RequestMapping("/profesor")
 public class ProfesorController {
 
     @Autowired
-    ProfesorService profesorService;
+    private ProfesorService profesorService;
+
+    public ProfesorController(ProfesorService profesorService) {
+        this.profesorService = profesorService;
+    }
 
     @PostMapping
     public ProfesorResponseDTO crearProfesor(@Valid ProfesorRequestDTO profesorRequestDTO){
@@ -27,7 +31,6 @@ public class ProfesorController {
 
         return profesorService.modificarProfesor(profesorRequestDTO,uuid);
     }
-
     @DeleteMapping(path="/{id}")
     public boolean eliminarProfesor(@PathVariable("id")String uuid ) throws ErrorServicioException{
 

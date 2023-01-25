@@ -5,9 +5,11 @@ import com.desafio.challenge.dto.AlumnoRequestDTO;
 import com.desafio.challenge.dto.AlumnoResponseDTO;
 import com.desafio.challenge.exception.ErrorServicioException;
 import com.desafio.challenge.services.AlumnoService;
+//import jakarta.validation.Valid;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,12 +25,12 @@ public class AlumnoController {
         return alumnoService.crearUsuario(alumnoRequestDTO);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path ="/{id}")
     public AlumnoResponseDTO modificarUsuario(@Valid AlumnoRequestDTO alumnoRequestDTO, @PathVariable("id") String uuid ) throws ErrorServicioException {
         return alumnoService.modificarUsuario(alumnoRequestDTO,uuid);
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path ="/{id}")
     public boolean eliminarAlumno(@PathVariable("id") String uuid ) throws ErrorServicioException {
 
         return alumnoService.eliminar(uuid);

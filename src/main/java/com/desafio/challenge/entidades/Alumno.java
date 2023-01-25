@@ -1,14 +1,14 @@
 package com.desafio.challenge.entidades;
 
-import jakarta.persistence.*;
+
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -39,6 +39,7 @@ public class Alumno {
     private String historias;
 
     @Column(name="cursos")
+    @ManyToOne
     private ArrayList<Curso> cursos;
 
     @NotNull
