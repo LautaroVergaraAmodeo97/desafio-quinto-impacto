@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.entidades;
 
 
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Where;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,12 +18,12 @@ import java.util.Date;
 @Where(clause = "deleted=0")
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name="Alumno")
+@Entity
 public class Alumno {
 
     @Id
-    @GeneratedValue(generator = "uuid")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id")
     private int id;

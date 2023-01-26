@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.controller;
 
 import com.desafio.challenge.dto.CursoRequestDTO;
@@ -17,10 +18,12 @@ public class CursoController {
     @Autowired
     private CursoService cursoService;
 
-    @PostMapping
+    @PostMapping("/cursos")
     public CursoResponseDTO crearCurso(@Valid CursoRequestDTO cursoRequestDTO){
-
-        return cursoService.crearCurso(cursoRequestDTO);
+    	cursoService.crearCurso(cursoRequestDTO);
+        	
+    	return "redirect:/cursos"
+    			
     }
 
     @PutMapping(path = "/{id}")
@@ -34,5 +37,10 @@ public class CursoController {
         return cursoService.eliminar(uuid);
     }
 
+    @GetMapping("/cursos","/")
+    public String listarCursos(Model model){
+    	model.addAttribute("cursos",cursoService.listarAlumnos());
+    	return "cursos";
+    }
 
 }

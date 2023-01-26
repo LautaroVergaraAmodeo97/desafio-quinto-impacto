@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar cursos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Control de Alumnos</a>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cursos}">Control de Alumnos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Edicion de Cursos</h1>
+                <div class="card-body">
+                    <form th:action="@{/cursos/{id}(id=$curso.id)}"  th:object="${curso}" method="post">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" name="nombre" th:file="*{nombre}" class="form-control" placeholder="Ingrese nombre" required>
+
+                            <label>Profesor</label>
+                            <input type="text" name="profesor" th:file="*{profesor}" class="form-control" placeholder="Ingrese profesor" required>
+                            
+                            <label>Turno</label>
+                            <input type="text" name="turno" th:file="*{turno}" class="form-control" placeholder="Ingrese turno" required>
+
+                            <label>Horario</label>
+                            <input type="text" name="horario" th:file="*{horario}" class="form-control" placeholder="Ingrese horario" required>
+                            
+
+                            <label>Alumnos</label>
+                            <input type="text" name="curso" th:file="*{alumnos}" class="form-control" placeholder="Ingrese alumnos" required>
+                            
+                            
+                            <div class="box-footer">
+                                <button class="btn btn-sucess">Guardar</button>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>

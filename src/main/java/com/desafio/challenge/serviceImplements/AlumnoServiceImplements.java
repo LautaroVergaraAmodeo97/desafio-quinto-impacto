@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.serviceImplements;
 
 import com.desafio.challenge.dto.AlumnoRequestDTO;
@@ -12,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("alumnoService")
 public class AlumnoServiceImplements implements AlumnoService {
 
 @Autowired
@@ -24,7 +25,14 @@ private AlumnoMapper alumnoMapper;
 
 private static final String ERROR_ALUMNO_NOT_FOUND = "No se encontro el alumno";
 
-@Override
+
+	@Override
+	public List<Alumno> listarAlumnos(){
+		return alumnoRepository.findAll();
+	}
+
+
+    @Override
     public Alumno findById(String uuid) throws ErrorServicioException{
     return alumnoRepository.findById(uuid).orElseThrow(() -> new ErrorServicioException(ERROR_ALUMNO_NOT_FOUND));
 }

@@ -4,6 +4,7 @@ package com.desafio.challenge.serviceImplements;
 
 import com.desafio.challenge.dto.CursoResponseDTO;
 import com.desafio.challenge.dto.CursoRequestDTO;
+import com.desafio.challenge.entidades.Alumno;
 import com.desafio.challenge.entidades.Curso;
 import com.desafio.challenge.exception.ErrorServicioException;
 import com.desafio.challenge.mapper.CursoMapper;
@@ -12,7 +13,7 @@ import com.desafio.challenge.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("cursoService")
 public class CursoServiceImplements implements CursoService {
 
     @Autowired
@@ -24,6 +25,15 @@ public class CursoServiceImplements implements CursoService {
 
     private static final String ERROR_CURSO_NOT_FOUND = "No se encontro el curso";
 
+
+	@Override
+	public List<Curso> listarAlumnos(){
+		return cursoRepository.findAll();
+	}
+
+    
+    
+    
     @Override
     public Curso findByID(String uuid) throws ErrorServicioException {
         return cursoRepository.findById(uuid).orElseThrow(() -> new ErrorServicioException(ERROR_CURSO_NOT_FOUND));

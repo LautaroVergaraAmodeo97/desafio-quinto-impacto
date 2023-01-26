@@ -1,7 +1,9 @@
+
 package com.desafio.challenge.serviceImplements;
 
 import com.desafio.challenge.dto.ProfesorRequestDTO;
 import com.desafio.challenge.dto.ProfesorResponseDTO;
+import com.desafio.challenge.entidades.Alumno;
 import com.desafio.challenge.entidades.Profesor;
 import com.desafio.challenge.exception.ErrorServicioException;
 import com.desafio.challenge.mapper.ProfesorMapper;
@@ -11,7 +13,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("profesorService")
 public class ProfesorServiceImplements implements ProfesorService {
 
     @Autowired
@@ -22,6 +24,14 @@ public class ProfesorServiceImplements implements ProfesorService {
 
     private static final String ERROR_PROFESOR_NOT_FOUND = "No se encontro el profesor";
 
+    
+
+	@Override
+	public List<Profesor> listarProfesor(){
+		return profesorRepository.findAll();
+	}
+
+    
     @Override
     public Profesor findById(String uuid) throws ErrorServicioException {
         return profesorRepository.findById(uuid).orElseThrow(() -> new ErrorServicioException(ERROR_PROFESOR_NOT_FOUND));

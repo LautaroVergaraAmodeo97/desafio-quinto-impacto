@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.controller;
 
 import com.desafio.challenge.dto.ProfesorRequestDTO;
@@ -16,14 +17,13 @@ public class ProfesorController {
     @Autowired
     private ProfesorService profesorService;
 
-    public ProfesorController(ProfesorService profesorService) {
-        this.profesorService = profesorService;
-    }
 
-    @PostMapping
+    @PostMapping("/profesor")
     public ProfesorResponseDTO crearProfesor(@Valid ProfesorRequestDTO profesorRequestDTO){
 
-        return profesorService.crearProfesor(profesorRequestDTO);
+    	profesorService.crearProfesor(profesorRequestDTO);
+        return "redirect:/profesores"
+        		
     }
 
     @PutMapping(path = "/{id}")
@@ -37,6 +37,11 @@ public class ProfesorController {
         return profesorService.eliminarProfesor(uuid);
     }
 
-
+   
+    @GetMapping("/profesor","/")
+    public String listarProfesores(Model model) {
+    	model.addAttribute("alumnos",profesorService.listarProfesor());
+    	return "profesor";
+    }
 
 }

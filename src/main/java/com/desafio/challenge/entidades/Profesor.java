@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Service;
 
 //import javax.persistence.*;
 import javax.persistence.*;
@@ -14,13 +15,13 @@ import java.util.ArrayList;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name = "Profesor")
+@Entity
 public class Profesor {
 
 
     @Id
-    @GeneratedValue(generator = "uuid")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name="id")
     private int id;

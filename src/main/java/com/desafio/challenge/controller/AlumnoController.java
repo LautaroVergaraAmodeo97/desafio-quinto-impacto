@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.controller;
 
 
@@ -5,7 +6,6 @@ import com.desafio.challenge.dto.AlumnoRequestDTO;
 import com.desafio.challenge.dto.AlumnoResponseDTO;
 import com.desafio.challenge.exception.ErrorServicioException;
 import com.desafio.challenge.services.AlumnoService;
-//import jakarta.validation.Valid;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +20,12 @@ public class AlumnoController {
     @Autowired
     private AlumnoService alumnoService;
 
-    @PostMapping
+    @PostMapping("/alumnos")
     public AlumnoResponseDTO crearUsuario (@Valid AlumnoRequestDTO alumnoRequestDTO){
-        return alumnoService.crearUsuario(alumnoRequestDTO);
+        
+    	alumnoService.crearUsuario(alumnoRequestDTO);
+    	return "redirect:/alumnos";
+        		
     }
 
     @PutMapping(path ="/{id}")
@@ -36,9 +39,14 @@ public class AlumnoController {
         return alumnoService.eliminar(uuid);
     }
 
-
-
-
-
-
+    @GetMapping("/alumnos","/")
+    public String listarEstudiantes(Model model) {
+    	model.addAttribute("alumnos",alumnoService.listarAlumnos());
+    	return "alumnos";
+    }
+    
+    
+    
+    
+    
 }

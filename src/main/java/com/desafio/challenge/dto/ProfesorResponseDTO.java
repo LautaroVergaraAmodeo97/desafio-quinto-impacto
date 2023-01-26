@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.dto;
 
 import com.desafio.challenge.entidades.Curso;

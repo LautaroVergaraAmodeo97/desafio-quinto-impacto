@@ -1,3 +1,4 @@
+
 package com.desafio.challenge.services;
 
 import com.desafio.challenge.dto.CursoRequestDTO;
@@ -17,5 +18,6 @@ public interface CursoService {
 
     boolean eliminar (String uuid) throws ErrorServicioException;
 
-
+    public List<Curso> listarCurso();
+    
 }
