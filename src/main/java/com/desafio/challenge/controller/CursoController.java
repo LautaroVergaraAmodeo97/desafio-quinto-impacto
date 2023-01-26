@@ -8,6 +8,7 @@ import com.desafio.challenge.services.CursoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,9 +21,7 @@ public class CursoController {
 
     @PostMapping("/cursos")
     public CursoResponseDTO crearCurso(@Valid CursoRequestDTO cursoRequestDTO){
-    	cursoService.crearCurso(cursoRequestDTO);
-        	
-    	return "redirect:/cursos"
+    	return 	cursoService.crearCurso(cursoRequestDTO);
     			
     }
 
@@ -37,10 +36,9 @@ public class CursoController {
         return cursoService.eliminar(uuid);
     }
 
-    @GetMapping("/cursos","/")
-    public String listarCursos(Model model){
-    	model.addAttribute("cursos",cursoService.listarAlumnos());
-    	return "cursos";
-    }
-
+ // @GetMapping("/cursos","/")
+  //public String listarCursos(Model model){
+  //model.addAttribute("cursos",cursoService.listarCurso());
+  //	return "cursos";
+  //
 }

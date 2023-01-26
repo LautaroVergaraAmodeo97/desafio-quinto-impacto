@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("alumnoService")
 public class AlumnoServiceImplements implements AlumnoService {
 
@@ -30,7 +32,6 @@ private static final String ERROR_ALUMNO_NOT_FOUND = "No se encontro el alumno";
 	public List<Alumno> listarAlumnos(){
 		return alumnoRepository.findAll();
 	}
-
 
     @Override
     public Alumno findById(String uuid) throws ErrorServicioException{

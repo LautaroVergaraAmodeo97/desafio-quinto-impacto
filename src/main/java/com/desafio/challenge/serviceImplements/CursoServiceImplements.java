@@ -13,6 +13,8 @@ import com.desafio.challenge.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("cursoService")
 public class CursoServiceImplements implements CursoService {
 
@@ -26,13 +28,10 @@ public class CursoServiceImplements implements CursoService {
     private static final String ERROR_CURSO_NOT_FOUND = "No se encontro el curso";
 
 
-	@Override
-	public List<Curso> listarAlumnos(){
-		return cursoRepository.findAll();
-	}
-
-    
-    
+    @Override
+    public List<Curso> listarCurso(){
+        return cursoRepository.findAll();
+    }
     
     @Override
     public Curso findByID(String uuid) throws ErrorServicioException {

@@ -23,8 +23,8 @@ public class AlumnoController {
     @PostMapping("/alumnos")
     public AlumnoResponseDTO crearUsuario (@Valid AlumnoRequestDTO alumnoRequestDTO){
         
-    	alumnoService.crearUsuario(alumnoRequestDTO);
-    	return "redirect:/alumnos";
+
+    	return alumnoService.crearUsuario(alumnoRequestDTO) ;
         		
     }
 

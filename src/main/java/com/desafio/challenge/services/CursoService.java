@@ -7,6 +7,8 @@ import com.desafio.challenge.entidades.Curso;
 import com.desafio.challenge.exception.ErrorServicioException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface CursoService {
 
